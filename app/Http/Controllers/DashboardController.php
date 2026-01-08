@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use App\Models\WeddingEvent;
+use App\Models\General_setting;
 use Auth;
 use DB;
 
@@ -56,26 +57,17 @@ class DashboardController extends Controller
             foreach($post as $key => $val) {
                 $data[] = ['setting_key' => $key,'setting_val' => $val,"created_at" => date("Y-m-d H:i:s")];
             }
-            $logo = $this->uploadImage($request,'logo','uploads/banner',$post['old_logo'] ?? null);
-            $data[] = ['setting_key' => 'logo','setting_val' => $logo,'created_at'  => now()];
+            $couple_photo = $this->uploadImage($request,'couple_photo','uploads/settings',$post['old_couple_photo'] ?? null);
+            $data[] = ['setting_key' => 'couple_photo','setting_val' => $couple_photo,'created_at'  => now()];
 
-            $bannerImage1 = $this->uploadImage($request,'banner_image_1','uploads/banner',$post['old_banner_image_1'] ?? null);
-            $data[] = ['setting_key' => 'banner_image_1','setting_val' => $bannerImage1,'created_at'  => now()];
+            $groom_photo = $this->uploadImage($request,'groom_photo','uploads/settings',$post['old_groom_photo'] ?? null);
+            $data[] = ['setting_key' => 'groom_photo','setting_val' => $groom_photo,'created_at'  => now()];
 
-            $bannerImage2 = $this->uploadImage($request,'banner_image_2','uploads/banner',$post['old_banner_image_2'] ?? null);
-            $data[] = ['setting_key' => 'banner_image_2','setting_val' => $bannerImage2,'created_at'  => now()];
+            $bride_photo = $this->uploadImage($request,'bride_photo','uploads/settings',$post['old_bride_photo'] ?? null);
+            $data[] = ['setting_key' => 'bride_photo','setting_val' => $bride_photo,'created_at'  => now()];
 
-            $bannerImage3 = $this->uploadImage($request,'banner_image_3','uploads/banner',$post['old_banner_image_3'] ?? null);
-            $data[] = ['setting_key' => 'banner_image_3','setting_val' => $bannerImage3,'created_at'  => now()];
-
-            $about_image = $this->uploadImage($request,'about_image','uploads/banner',$post['old_about_image'] ?? null);
-            $data[] = ['setting_key' => 'about_image','setting_val' => $about_image,'created_at'  => now()];
-
-            $highlight_image = $this->uploadImage($request,'highlight_image','uploads/banner',$post['old_highlight_image'] ?? null);
-            $data[] = ['setting_key' => 'highlight_image','setting_val' => $highlight_image,'created_at'  => now()];
-
-            $business_image = $this->uploadImage($request,'business_image','uploads/banner',$post['old_business_image'] ?? null);
-            $data[] = ['setting_key' => 'business_image','setting_val' => $business_image,'created_at'  => now()];
+            $banner_photo = $this->uploadImage($request,'banner_photo','uploads/settings',$post['old_banner_photo'] ?? null);
+            $data[] = ['setting_key' => 'banner_photo','setting_val' => $banner_photo,'created_at'  => now()];
 
             General_setting::truncate();
             General_setting::insert($data);

@@ -122,6 +122,7 @@
                                 <h6 class="submenu-hdr">Main</h6>
                                 <ul id="main_menu_list">
                                     <li><a href="{{ route('admin.dashboard') }}"><i data-feather="box"></i><span>Dashboard</span></a></li>
+                                    <li><a href="{{ route('admin.settings') }}"><i data-feather="box"></i><span>General Info</span></a></li>
                                 </ul>
                             </li>
                             <li class="submenu-open">

@@ -26,7 +26,8 @@ Route::prefix('admin')->group(function () {
     Route::resource('guests', GuestController::class);
     Route::get('/load-guests', [GuestController::class, 'load'])->name('admin.guest.load');
     
-    Route::get('/settings', [DashboardController::class, 'settings'])->name('admin.settings');
+    Route::get('/settings', [DashboardController::class, 'general_settings'])->name('admin.settings');
+    Route::post('/submit-general-settings', [DashboardController::class, 'submit_general_settings'])->name('admin.submit.general.settings');
 
     Route::post('/side-change', [DashboardController::class, 'side_change'])->name('admin.vivahsidechange');
 });
