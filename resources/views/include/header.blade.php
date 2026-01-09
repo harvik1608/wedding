@@ -128,6 +128,9 @@
                             <li class="submenu-open">
                                 <h6 class="submenu-hdr">Other</h6>
                                 <ul id="main_menu_list">
+                                    <li><a href="{{ url('admin/stories') }}"><i data-feather="box"></i><span>Story List</span></a></li>
+                                    <li><a href="{{ url('admin/hosts') }}"><i data-feather="box"></i><span>Host List</span></a></li>
+                                    <li><a href="{{ url('admin/photos') }}"><i data-feather="box"></i><span>Photo List</span></a></li>
                                     <li><a href="{{ url('admin/venues') }}"><i data-feather="box"></i><span>Venue List</span></a></li>
                                     <li><a href="{{ url('admin/events') }}"><i data-feather="box"></i><span>Event List</span></a></li>
                                     <li><a href="{{ url('admin/guests') }}"><i data-feather="box"></i><span>Guest List</span></a></li>
