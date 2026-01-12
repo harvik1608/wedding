@@ -23,6 +23,7 @@
 		<link href="{{ asset('website/assets/css/jquery.fancybox.css') }}" rel="stylesheet">
 		<link href="{{ asset('website/assets/css/odometer-theme-default.css') }}" rel="stylesheet">
 		<link href="{{ asset('website/assets/sass/style.css') }}" rel="stylesheet">
+		<script src="{{ asset('website/assets/js/jquery.min.js') }}"></script>
 	</head>
 	<body>
 		<div class="page-wrapper">
@@ -54,8 +55,7 @@
 	                            </div>
 	                            <div class="col-lg-2 col-md-6 col-6">
 	                                <div class="navbar-header">
-	                                    <a class="navbar-brand logo" href="index-2.html"><small>Avadh</small>Pankti<span><i
-	                                                class="fi flaticon-dove"></i></span></a>
+	                                    <a class="navbar-brand logo" href="{{ route('home') }}"><small>Avadh</small>Pankti<span><i class="fi flaticon-dove"></i></span></a>
 	                                </div>
 	                            </div>
 	                            <div class="col-lg-8 col-md-1 col-1">
@@ -63,22 +63,22 @@
 	                                    <button class="menu-close"><i class="ti-close"></i></button>
 	                                    <ul class="nav navbar-nav mb-2 mb-lg-0">
 	                                        <li>
-	                                            <a href="#couple">Home</a>
+	                                            <a href="{{ route('home') }}">Home</a>
 	                                        </li>
 	                                        <li>
-	                                            <a href="#couple">Couple</a>
+	                                            <a href="{{ route('couple') }}">Couple</a>
 	                                        </li>
 	                                        <li>
-	                                            <a href="#story">Story</a>
+	                                            <a href="{{ route('story') }}">Story</a>
 	                                        </li>
 	                                        <li>
-	                                            <a href="#gallery">Gallery</a>
+	                                            <a href="{{ route('host') }}">Hosts</a>
 	                                        </li>
 	                                        <li>
-	                                            <a href="#RSVP">RSVP</a>
+	                                            <a href="{{ route('gallery') }}">Gallery</a>
 	                                        </li>
 	                                        <li>
-	                                            <a href="#event">Events</a>
+	                                            <a href="{{ route('event') }}">Events</a>
 	                                        </li>
 	                                    </ul>
 
@@ -86,9 +86,17 @@
 	                            </div>
 	                            <div class="col-lg-2 col-md-2 col-2">
 	                                <div class="header-right">
-	                                    <a class="theme-btn" href="rsvp.html"><span class="text">Attend Now</span> <span class="mobile">
-	                                        <i class="fi flaticon-user"></i>
-	                                    </span></a>
+	                                	@if(!session()->has('guest_number'))
+	                                    	<a class="theme-btn" href="{{ route('rsvp') }}">
+	                                    		<span class="text">Attend Now</span> 
+	                                    		<span class="mobile"><i class="fi flaticon-user"></i></span>
+	                                    	</a>
+	                                    @else
+	                                    	<a class="theme-btn" href="{{ route('logout') }}">
+	                                    		<span class="text">Logout</span> 
+	                                    		<span class="mobile"><i class="fi flaticon-user"></i></span>
+	                                    	</a>
+	                                    @endif
 	                                </div>
 	                            </div>
 	                        </div>
@@ -97,7 +105,7 @@
 	            </div>
 	        </header>
 	        @yield('main_content')
-	        <footer class="wpo-site-footer">
+	        <!-- <footer class="wpo-site-footer">
 	            <div class="wpo-upper-footer">
 	                <div class="container">
 	                    <div class="row">
@@ -173,7 +181,7 @@
 	                            </div>
 	                        </div>
 	                    </div>
-	                </div> <!-- end container -->
+	                </div>
 	            </div>
 	            <div class="wpo-lower-footer">
 	                <div class="container">
@@ -185,9 +193,8 @@
 	                    </div>
 	                </div>
 	            </div>
-	        </footer>
+	        </footer> -->
 		</div>
-		<script src="{{ asset('website/assets/js/jquery.min.js') }}"></script>
 		<script src="{{ asset('website/assets/js/bootstrap.bundle.min.js') }}"></script>
 		<script src="{{ asset('website/assets/js/modernizr.custom.js') }}"></script>
 		<script src="{{ asset('website/assets/js/jquery.dlmenu.js') }}"></script>

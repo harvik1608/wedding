@@ -3,6 +3,7 @@
 
     use Illuminate\Http\Request;
     use Illuminate\Support\Str;
+    use App\Models\General_setting;
 
     trait CommonFunctions
     {
@@ -34,5 +35,15 @@
                 return $filename;
             }
             return $oldFile;
+        }
+
+        public function general_setting($key)
+        {
+            $row = General_setting::where('setting_key',$key)->first();
+            if($row) {
+                return $row['setting_val'];
+            } else {
+                return '';
+            }
         }
     }

@@ -12,6 +12,16 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/couple', [HomeController::class, 'couple'])->name('couple');
+Route::get('/story', [HomeController::class, 'story'])->name('story');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('/rsvp', [HomeController::class, 'rsvp'])->name('rsvp');
+Route::get('/host', [HomeController::class, 'host'])->name('host');
+Route::get('/event', [HomeController::class, 'event'])->name('event');
+Route::get('/rsvp', [HomeController::class, 'rsvp'])->name('rsvp');
+Route::post('/submit-rsvp', [HomeController::class, 'submit_rsvp'])->name('submit.rsvp');
+Route::post('/submit-signin', [HomeController::class, 'submit_signin'])->name('submit-signin');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AuthController::class, 'index'])->name('admin.login');

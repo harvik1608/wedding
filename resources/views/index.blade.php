@@ -9,10 +9,10 @@
                                 <div class="wpo-static-hero-inner">
                                     <div class="shape-1"><img src="{{ asset('website/assets/images/slider/shape.svg') }}" alt=""></div>
                                     <div data-swiper-parallax="300" class="slide-title">
-                                        <h2>Avadh <span>&</span> Pankti</h2>
+                                        <h2>{{ $groom_name }} <span>&</span> {{ $bride_name }}</h2>
                                     </div>
                                     <div data-swiper-parallax="400" class="slide-text">
-                                        <p>We Are Getting Married Aug 01, 2026</p>
+                                        <p>We Are Getting Married {{ date('d M, Y',strtotime($wedding_date)) }}</p>
                                     </div>
                                     <div class="wpo-wedding-date">
                                         <div class="clock-grids">
@@ -29,10 +29,10 @@
             <div class="static-hero-right">
                 <div class="static-hero-img">
                     <div class="static-hero-img-inner">
-                        <img src="{{ asset('website/assets/images/slider/s1.png') }}" alt="">
+                        <img src="{{ asset('uploads/settings/'.$couple_photo) }}" alt="">
                     </div>
-                    <div class="static-hero-shape-1 floating-item"><img src="assets/images/slider/flower1.png" alt=""></div>
-                    <div class="static-hero-shape-2 floating-item"><img src="assets/images/slider/flower2.png" alt=""></div>
+                    <div class="static-hero-shape-1 floating-item"><img src="{{ asset('website/assets/images/slider/flower1.png') }}" alt=""></div>
+                    <div class="static-hero-shape-2 floating-item"><img src="{{ asset('website/assets/images/slider/flower2.png') }}" alt=""></div>
                 </div>
             </div>
 </section>
@@ -45,23 +45,15 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-4">
                                         <div class="couple-img">
-                                            <img src="{{ asset('website/assets/images/couple/2.jpg') }}" alt="">
+                                            <img src="{{ asset('uploads/settings/'.$bride_photo) }}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-lg-7">
                                         <div class="couple-text">
-                                            <h3>Jenny Wilson</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna orci auctor
-                                                vitae nisl. Erat fringilla pellentesque amet tempus. Commodo mi vitae,
-                                                sed sagittis blandit. Leo netus magna fusce ac turpis mauris maecenas
-                                                non.</p>
+                                            <h3>{{ $bride_name }}</h3>
+                                            <p>{{ $about_bride }}</p>
                                             <div class="social">
-                                                <ul>
-                                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                                                </ul>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -71,24 +63,16 @@
                                 <div class="row align-items-center">
                                     <div class="col-lg-7 order-lg-1 order-2">
                                         <div class="couple-text">
-                                            <h3>Leslie Alexander</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna orci auctor
-                                                vitae nisl. Erat fringilla pellentesque amet tempus. Commodo mi vitae,
-                                                sed sagittis blandit. Leo netus magna fusce ac turpis mauris maecenas
-                                                non.</p>
+                                            <h3>{{ $groom_name }}</h3>
+                                            <p>{{ $about_groom }}</p>
                                             <div class="social">
-                                                <ul>
-                                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                                                </ul>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 order-lg-2 order-1">
                                         <div class="couple-img">
-                                            <img src="{{ asset('website/assets/images/couple/3.jpg') }}" alt="">
+                                            <img src="{{ asset('uploads/settings/'.$groom_photo) }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -98,15 +82,15 @@
                 </div>
             </div> <!-- end container -->
             <div class="shape-1">
-                <img src="assets/images/couple/shape-1.png" alt="">
+                <img src="{{ asset('website/assets/images/couple/shape-1.png') }}" alt="">
             </div>
             <div class="shape-2">
-                <img src="assets/images/couple/shape-2.png" alt="">
+                <img src="{{ asset('website/assets/images/couple/shape-2.png') }}" alt="">
             </div>
 </section>
 <section class="wpo-video-section">
    	<h2 class="hidden">some</h2>
-    <a href="https://www.youtube.com/embed/G-rzE-9zHj8" class="video-btn" data-type="iframe"><i class="fi flaticon-play"></i></a>
+    <a href="{{ $wedding_video }}" class="video-btn" data-type="iframe"><i class="fi flaticon-play"></i></a>
 </section>
 <section class="story-section section-padding" id="story">
             <div class="container">
@@ -128,75 +112,60 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="story-timeline-item s1">
-                                <div class="row align-items-center">
-                                    <div class="col col-lg-6 col-12">
-                                        <div class="img-holder right-align-text wow fadeInLeftSlow" data-wow-duration="1500ms">
-                                            <img src="{{ asset('website/assets/images/story/1.jpg') }}" alt class="img img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col col-lg-6 col-12">
-                                        <div class="story-text left-align-text wow fadeInRightSlow" data-wow-duration="2000ms">
-                                            <h3>First Time We Meet</h3>
-                                            <span class="date">19 Jan 2018</span>
-                                            <div class="line-shape">
-                                                <div class="outer-ball">
-                                                    <div class="inner-ball"></div>
+                            @if(!$stories->isEmpty())
+                                @foreach($stories as $key => $val)
+                                    @if($key%2 == 0)
+                                        <div class="story-timeline-item">
+                                            <div class="row align-items-center">
+                                                <div class="col col-lg-6 col-12 order-lg-1 order-2 text-holder left-text">
+                                                    <div class="story-text right-align-text wow fadeInLeftSlow"
+                                                        data-wow-duration="2000ms">
+                                                        <h3>{{ $val->title }}</h3>
+                                                        <span class="date">{{ date('d M, Y',strtotime($val->date)) }}</span>
+                                                        <div class="line-shape s2">
+                                                            <div class="outer-ball">
+                                                                <div class="inner-ball"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p>{{ $val->description }}</p>
+                                                    </div>
                                                 </div>
-                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, constetur adicng elit. Ultricies nulla mi tempus mcorper for praesent. Ultricies interdum volutpat morbi nam ornare neque elit leo, diam. Malesuada enim ac amurna tempor vel duis.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="story-timeline-item">
-                                <div class="row align-items-center">
-                                    <div class="col col-lg-6 col-12 order-lg-1 order-2 text-holder left-text">
-                                        <div class="story-text right-align-text wow fadeInLeftSlow" data-wow-duration="2000ms">
-                                            <h3>Our First Date</h3>
-                                            <span class="date">22 May 2021</span>
-                                            <div class="line-shape s2">
-                                                <div class="outer-ball">
-                                                    <div class="inner-ball"></div>
+                                                <div class="col col-lg-6 col-12 order-lg-2 order-1">
+                                                    <div class="img-holder left-align-text">
+                                                        <img src="{{ asset('uploads/story/'.$val->avatar) }}" alt class="img img-responsive wow fadeInRightSlow" data-wow-duration="1500ms">
+                                                        <span class="heart">
+                                                            <i class="fi flaticon-dance"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, constetur adicng elit. Ultricies nulla mi tempus mcorper for praesent. Ultricies interdum volutpat morbi nam ornare neque elit leo, diam. Malesuada enim ac amurna tempor vel duis.</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col col-lg-6 col-12 order-lg-2 order-1">
-                                        <div class="img-holder left-align-text">
-                                            <img src="{{ asset('website/assets/images/story/2.jpg') }}" alt class="img img-responsive wow fadeInRightSlow" data-wow-duration="1500ms">
-                                            <span class="heart">
-                                                <i class="fi flaticon-dance"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="story-timeline-item">
-                                <div class="row align-items-center">
-                                    <div class="col col-lg-6 col-12">
-                                        <div class="img-holder right-align-text left-site right-heart">
-                                            <img src="{{ asset('website/assets/images/story/3.jpg') }}" alt class="img img-responsive wow fadeInLeftSlow" data-wow-duration="1500ms">
-                                            <span class="heart">
-                                                <i class="fi flaticon-dove"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col col-lg-6 col-12">
-                                        <div class="story-text left-align-text wow fadeInRightSlow" data-wow-duration="2000ms">
-                                            <h3>She Said Yes!</h3>
-                                            <span class="date">15 June 2022</span>
-                                            <div class="line-shape">
-                                                <div class="outer-ball">
-                                                    <div class="inner-ball"></div>
+                                    @else
+                                        <div class="story-timeline-item s1">
+                                            <div class="row align-items-center">
+                                                <div class="col col-lg-6 col-12">
+                                                    <div class="img-holder right-align-text wow fadeInLeftSlow"
+                                                        data-wow-duration="1500ms">
+                                                        <img src="{{ asset('uploads/story/'.$val->avatar) }}" alt class="img img-responsive">
+                                                    </div>
                                                 </div>
-                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, constetur adicng elit. Ultricies nulla mi tempus mcorper for praesent. Ultricies interdum volutpat morbi nam ornare neque elit leo, diam. Malesuada enim ac amurna tempor vel duis.</p>
+                                                <div class="col col-lg-6 col-12">
+                                                    <div class="story-text left-align-text wow fadeInRightSlow" data-wow-duration="2000ms">
+                                                        <h3>{{ $val->title }}</h3>
+                                                        <span class="date">{{ date('d M, Y',strtotime($val->date)) }}</span>
+                                                        <div class="line-shape">
+                                                            <div class="outer-ball">
+                                                                <div class="inner-ball"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p>{{ $val->description }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div> <!-- end row -->
@@ -220,94 +189,43 @@
         </div>
     </div>
 </div>
-<section class="wpo-portfolio-section section-padding" id="gallery">
+        
+        <section class="wpo-team-section mt-5">
             <div class="container">
                 <div class="row">
                     <div class="wpo-section-title">
                         <div class="section-title-icon">
                             <i class="fi flaticon-dove"></i>
                         </div>
-                        <h2>Sweet Captured Moments</h2>
+                        <h2>Bridesmaids & Groomsmen</h2>
                     </div>
                 </div>
-                <div class="sortable-gallery">
-                    <div class="gallery-filters"></div>
+                <div class="wpo-team-wrap">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="portfolio-grids gallery-container clearfix">
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/1.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/1.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
+                        @if(!$hosts->isEmpty())
+                            @foreach($hosts as $key => $val)
+                                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+                                    <div class="wpo-team-item">
+                                        <div class="wpo-team-img">
+                                            <div class="wpo-team-img-inner">
+                                                <img src="{{ asset('uploads/host/'.$val->avatar) }}" alt="">
                                             </div>
-                                        </a>
+                                            <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
+                                            <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
+                                        </div>
+                                        <div class="wpo-team-text">
+                                            <h3><a href="javascript:;">{{ $val->name }}</a></h3>
+                                            <span>{{ $val->relation }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/2.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/2.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/3.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/3.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/5.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/5.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/4.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/4.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grid">
-                                    <div class="img-holder">
-                                        <a href="{{ asset('website/assets/images/portfolio/6.jpg') }}" class="fancybox"
-                                            data-fancybox-group="gall-1">
-                                            <img src="{{ asset('website/assets/images/portfolio/6.jpg') }}" alt class="img img-responsive">
-                                            <div class="hover-content">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div> <!-- end container -->
         </section>
-        <section class="wpo-contact-section section-padding" id="RSVP">
+<section class="wpo-contact-section section-padding mt-5" id="RSVP">
             <div class="container">
                 <div class="wpo-contact-section-wrapper">
                     <div class="wpo-contact-form-area">
@@ -386,112 +304,5 @@
             <div class="shape-2">
                 <img src="{{ asset('website/assets/images/rsvp/shape2.png') }}" alt="">
             </div>
-        </section>
-        <section class="wpo-team-section">
-            <div class="container">
-                <div class="row">
-                    <div class="wpo-section-title">
-                        <div class="section-title-icon">
-                            <i class="fi flaticon-dove"></i>
-                        </div>
-                        <h2>Bridesmaids & Groomsmen</h2>
-                    </div>
-                </div>
-                <div class="wpo-team-wrap">
-                    <div class="row">
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-1.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Leslie Alexander</a></h3>
-                                    <span>Brides Brother</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-2.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Jenny Wilson</a></h3>
-                                    <span>Brides Sister</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-3.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Robert Fox</a></h3>
-                                    <span>Brides Brother</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-4.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Jerome Bell</a></h3>
-                                    <span>Groom’s Sister</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-5.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Esther Howard</a></h3>
-                                    <span>Groom’s Brother</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
-                            <div class="wpo-team-item">
-                                <div class="wpo-team-img">
-                                    <div class="wpo-team-img-inner">
-                                        <img src="{{ asset('website/assets/images/team/img-6.jpg') }}" alt="">
-                                    </div>
-                                    <div class="shape-1"><img src="{{ asset('website/assets/images/team/shape1.jpg') }}" alt=""></div>
-                                    <div class="shape-2"><img src="{{ asset('website/assets/images/team/shape2.jpg') }}" alt=""></div>
-                                </div>
-                                <div class="wpo-team-text">
-                                    <h3><a href="groom-bride.html">Bessie Cooper</a></h3>
-                                    <span>Brides Maid</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div> <!-- end container -->
         </section>
 @endsection
